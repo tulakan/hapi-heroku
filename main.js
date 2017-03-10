@@ -58,7 +58,9 @@ server.route([
     { method: 'GET', path: '/output', config: { handler: internals.output, validate: { query: { input: S().min(3) } } } },
     { method: 'GET', path: '/users/{id}', config: { description: 'Get a user', handler: internals.get, validate: { params: { id: N().required() }, query: { name: S().description('the user name').required() } } } },
     { method: 'GET', path: '/redirect', config: { handler: internals.redirect } },
-    { method: 'GET', path: '/error', config: { handler: internals.error } }
+    { method: 'GET', path:'/hello', handler: function (request, reply) {return reply('hello world');}},
+    { method: 'GET', path: '/error', config: { handler: internals.error }
+    }
 ]);
 
 var schema = Joi.object().keys({
