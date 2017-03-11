@@ -49,14 +49,14 @@ internals.error = function (request, reply) {
 var server = new Hapi.Server(~~process.env.PORT || 3000, '0.0.0.0');
 
 server.route([
-    { method: 'GET', path: '/', config: { handler: internals.get, validate: { query: { username: S() } } } },
-    { method: 'POST', path: '/', config: { handler: internals.echo, payload: { parse: true } } },
-    { method: 'GET', path: '/admin', config: { handler: internals.get, validate: { query: { username: S().required(), password: S().required() } } } },
-    { method: 'GET', path: '/users', config: { handler: internals.get, validate: { query: { email: S().email().required().min(18) } } } },
-    { method: 'GET', path: '/config', config: { handler: internals.get, validate: { query: { choices: A().required() } } } },
-    { method: 'GET', path: '/test', config: { handler: internals.get, validate: { query: { num: N().min(0) } } } },
-    { method: 'GET', path: '/output', config: { handler: internals.output, validate: { query: { input: S().min(3) } } } },
-    { method: 'GET', path: '/users/{id}', config: { description: 'Get a user', handler: internals.get, validate: { params: { id: N().required() }, query: { name: S().description('the user name').required() } } } },
+    // { method: 'GET', path: '/', config: { handler: internals.get, validate: { query: { username: S() } } } },
+    // { method: 'POST', path: '/', config: { handler: internals.echo, payload: { parse: true } } },
+    // { method: 'GET', path: '/admin', config: { handler: internals.get, validate: { query: { username: S().required(), password: S().required() } } } },
+    // { method: 'GET', path: '/users', config: { handler: internals.get, validate: { query: { email: S().email().required().min(18) } } } },
+    // { method: 'GET', path: '/config', config: { handler: internals.get, validate: { query: { choices: A().required() } } } },
+    // { method: 'GET', path: '/test', config: { handler: internals.get, validate: { query: { num: N().min(0) } } } },
+    // { method: 'GET', path: '/output', config: { handler: internals.output, validate: { query: { input: S().min(3) } } } },
+    // { method: 'GET', path: '/users/{id}', config: { description: 'Get a user', handler: internals.get, validate: { params: { id: N().required() }, query: { name: S().description('the user name').required() } } } },
     { method: 'GET', path: '/redirect', config: { handler: internals.redirect } },
     { method: 'GET', path:'/hello', handler: function (request, reply) {return reply('hello world');}},
     { method: 'GET', path: '/error', config: { handler: internals.error }
