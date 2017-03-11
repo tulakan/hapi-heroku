@@ -46,7 +46,7 @@ var Hapi = require('hapi');
 //     reply('This is my error');
 // };
 
-var server = new Hapi.Server(~~process.env.PORT || 3000, '0.0.0.0');
+var server = new Hapi.Server(process.env.PORT || 3000);
 
 // server.route([
 //     // { method: 'GET', path: '/', config: { handler: internals.get, validate: { query: { username: S() } } } },
