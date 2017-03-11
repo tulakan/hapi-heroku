@@ -1,5 +1,5 @@
 var Hapi = require('hapi');
-var Joi = require('joi');
+// var Joi = require('joi');
 
 
 var internals = {};
@@ -7,9 +7,9 @@ var internals = {};
 
 // Type shortcuts
 
-var S = Joi.string;
-var N = Joi.number;
-var A = Joi.array;
+// var S = Joi.string;
+// var N = Joi.number;
+// var A = Joi.array;
 
 
 
@@ -63,11 +63,11 @@ server.route([
     }
 ]);
 
-var schema = Joi.object().keys({
-    title: S().required().invalid('director'),
-    status: S().required().valid('open', 'pending', 'close'),
-    participants: A().required().includes(S(), N()).min(2)
-});
+// var schema = Joi.object().keys({
+//     title: S().required().invalid('director'),
+//     status: S().required().valid('open', 'pending', 'close'),
+//     participants: A().required().includes(S(), N()).min(2)
+// });
 
 server.route({
     method: 'POST',
